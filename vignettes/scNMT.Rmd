@@ -43,20 +43,35 @@ For more information on the protocol, see @Clark2018-qg.
 The user can see the available dataset by using the default options
 
 ```{r}
-scNMT("mouse_gastrulation", mode = "*", dry.run = TRUE)
+scNMT("mouse_gastrulation", mode = "*", version = "1.0.0", dry.run = TRUE)
 ```
 
 Or by simply running:
 
 ```{r}
-scNMT("mouse_gastrulation")
+scNMT("mouse_gastrulation", version = "1.0.0")
 ```
+
+## Data versions
+
+A more recent release of the 'mouse_gastrulation' dataset has been provided
+by Argelaguet and colleagues. This dataset includes additional cells that
+did not pass the original quality metrics as imposed for the version `1.0.0`
+dataset.
+
+Use the `version` argument to indicate the newer dataset version (`2.0.0`):
+
+```{r}
+scNMT("mouse_gastrulation", version = '2.0.0', dry.run = TRUE)
+```
+
+## Actual Data
 
 Example with actual data:
 
 ```{r,message=FALSE}
 nmt <- scNMT("mouse_gastrulation", mode = c("*_DHS", "*_cgi", "*_genebody"),
-    dry.run = FALSE)
+    version = "1.0.0", dry.run = FALSE)
 nmt
 ```
 
